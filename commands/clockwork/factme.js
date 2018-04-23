@@ -40,20 +40,14 @@ class FactOfTheDay extends Discord.Command
                             targetedsearch = "";
                             cashsearchnone = 1;
                         }
-                        else
-                        {
-                            if (cashsearchnone == 0)
-                            {
-                            cashsearchnone = 1;
-                            
-                            }
-                        }
-
-
                         
                     });
 
-                    
+                    if (cashsearchnone == 0)
+                            {
+                            cashsearchnone = 1;
+                            message.channel.send(targetedsearch);
+                            }
                 }
                 else
                 { 

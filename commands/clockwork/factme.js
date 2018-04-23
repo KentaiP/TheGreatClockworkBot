@@ -31,7 +31,7 @@ class FactOfTheDay extends Discord.Command
                     
                     if (item.toLowerCase().indexOf(args.toLowerCase()) !=-1)
                         {
-                            if (targetedsearch == "Oh, sadly I found nothing, try a different search term.")
+                            if (cashsearchnone == 0)
                             {
                                 targetedsearch = "I found the following facts that contain the key word **" + args + "**: \n";
                             }
@@ -46,7 +46,7 @@ class FactOfTheDay extends Discord.Command
                     if (cashsearchnone == 0)
                             {
                             cashsearchnone = 1;
-                            message.channel.send(targetedsearch);
+                            message.channel.send("Oh, sadly I found nothing, try a different search term.");
                             }
                 }
                 else

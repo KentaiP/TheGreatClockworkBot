@@ -45,7 +45,7 @@ class FactOfTheDay extends Discord.Command
                             if (cashsearchnone == 0)
                             {
                             cashsearchnone = 1;
-                            message.channel.send(targetedsearch);
+                            
                             }
                         }
 

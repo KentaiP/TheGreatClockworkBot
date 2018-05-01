@@ -24,11 +24,16 @@ class FactOfTheDay extends Discord.Command
 					
 				if (preid == "none")
 				{
-				message.guild.channels.get("408726317970751490").fetchMessages({limit: 20}).then(messages => 
+				message.guild.channels.get("408726317970751490").fetchMessages({limit: 50}).then(messages => 
 						{						
-							if(Array.from(messages).length == 20)
+							if(Array.from(messages).length == 50)
 							{
 								crawlmessages(messages.last().id, Array.from(messages));
+							}
+							else
+							{
+								var regmatches = messages.toString().match(/#*```(.*?)```/g);
+								message.channel.send(regmatches.length);
 							}
 						}).catch(err => {
 									console.log(err.stack);
@@ -36,10 +41,10 @@ class FactOfTheDay extends Discord.Command
 				}
 				else
 				{
-				message.guild.channels.get("408726317970751490").fetchMessages({limit: 20, before: preid}).then(messages => 
+				message.guild.channels.get("408726317970751490").fetchMessages({limit: 50, before: preid}).then(messages => 
 						{	
 						
-							if(Array.from(messages).length == 20)
+							if(Array.from(messages).length == 50)
 							{						
 								crawlmessages(messages.last().id, Array.from(messages))
 							}

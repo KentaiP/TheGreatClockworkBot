@@ -18,19 +18,43 @@ class FactOfTheDay extends Discord.Command
 	var scoopchannel = [];
 	
 		
-				message.guild.channels.get("408726317970751490").fetchMessages({limit: 10, before: "410452403582664715"}).then(messages => 
-					{
-					scoopchannel.push.apply(Array.from(messages));	
-					var fetchlength = Array.from(messages).length; 
-					message.channel.send(fetchlength);	
-					message.channel.send(messages.last().id);
-					
-					}).catch(err => {
-								console.log(err.stack);
-								}); 
-
+			function crawlmessages(preid, messagecollection) 
+			{	
+				if (preid == "none")
+				{
+				message.guild.channels.get("408726317970751490").fetchMessages({limit: 10}).then(messages => 
+						{						
+							if(fetchlength == 10)
+							{
+								scoopchannel.push.apply(Array.from(messages));
+								crawlmessages(messages.last().id, messages);
+							}
+						}						
+				}
+				else
+				{
+				message.guild.channels.get("408726317970751490").fetchMessages({limit: 10, before: preid}).then(messages => 
+						{	
+						
+							if(fetchlength == 10)
+							{						
+								scoopchannel.push.apply(Array.from(messages));
+								crawlmessages(messages.last().id, scoopchannel)
+							}
+							else
+							{
+								message.channel.send(scoopchannel.length);
+							}
+						
+						}).catch(err => {
+									console.log(err.stack);
+									}); 
+				}
+			}
 			
-					
+			crawlmessages("none", scoopchannel);
+			
+				/* 	
                 var regmatches = scoopchannel.toString().match(/#*```(.*?)```/g);
                 var getfact = "There was an uncashed Exception, sorry."; 
                 var exceptions = ["436573366842032128", "434514788966465546"];
@@ -67,11 +91,11 @@ class FactOfTheDay extends Discord.Command
                     do 
                     {
                         var getfact = regmatches[Math.floor(Math.random() * Math.floor(regmatches.length))];
-                        /* console.log(regmatches); */
+                      
                     }while(new RegExp(exceptions.join("|")).test(getfact));
                 
                     message.channel.send("Did you know this?" + getfact);
-                }          
+                }         */  
         
     }
 }

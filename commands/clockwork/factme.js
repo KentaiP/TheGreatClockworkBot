@@ -23,7 +23,7 @@ class FactOfTheDay extends Discord.Command
                 var exceptions = ["436573366842032128", "434514788966465546"];
                 var cashsearchnone = 0;
 
-				message.channel.send(regmatches[0]);
+				message.channel.send(regmatches.last());
 				
                 if (args.length > 2)
                 {

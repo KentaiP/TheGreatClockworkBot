@@ -24,7 +24,7 @@ class FactOfTheDay extends Discord.Command
 					
 				if (preid == "none")
 				{
-				message.guild.channels.get("408726317970751490").fetchMessages({limit: 10}).then(messages => 
+				message.guild.channels.get("408726317970751490").fetchMessages({limit: 20}).then(messages => 
 						{						
 							if(Array.from(messages).length == 10)
 							{
@@ -36,7 +36,7 @@ class FactOfTheDay extends Discord.Command
 				}
 				else
 				{
-				message.guild.channels.get("408726317970751490").fetchMessages({limit: 10, before: preid}).then(messages => 
+				message.guild.channels.get("408726317970751490").fetchMessages({limit: 20, before: preid}).then(messages => 
 						{	
 						
 							if(Array.from(messages).length == 10)

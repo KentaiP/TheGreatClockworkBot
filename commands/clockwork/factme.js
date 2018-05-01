@@ -18,7 +18,7 @@ class FactOfTheDay extends Discord.Command
 		var scoopchannel = message.guild.channels.get("408726317970751490").fetchMessages({limit: 10});
 		
 		var fetchlength = Array.from(scoopchannel).length; 
-		message.channel.send(Array.from(scoopchannel)[0]);	
+		message.channel.send(fetchlength);	
 					
                 var regmatches = scoopchannel.toString().match(/#*```(.*?)```/g);
                 var getfact = "There was an uncashed Exception, sorry."; 

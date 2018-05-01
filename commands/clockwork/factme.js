@@ -22,7 +22,7 @@ class FactOfTheDay extends Discord.Command
 					{
 					scoopchannel.push.apply(Array.from(messages));	
 					var fetchlength = Array.from(messages).length; 
-					
+					message.channel.send(fetchlength);	
 					}).catch(err => {
 								console.log(err.stack);
 								});

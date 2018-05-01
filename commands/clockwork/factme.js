@@ -45,7 +45,7 @@ class FactOfTheDay extends Discord.Command
 							}
 							else
 							{
-								message.channel.send(scoopchannel.length);
+								message.channel.send("test");
 							}
 						
 						}).catch(err => {

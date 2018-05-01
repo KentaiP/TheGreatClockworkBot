@@ -15,7 +15,7 @@ class FactOfTheDay extends Discord.Command
     async run(message, args) 
     {
 
-		var scoopchannel = [];
+/* 		var scoopchannel = [];
 	
 		
 				message.guild.channels.get("408726317970751490").fetchMessages({limit: 10}).then(messages => 
@@ -25,10 +25,10 @@ class FactOfTheDay extends Discord.Command
 					message.channel.send(fetchlength);	
 					}).catch(err => {
 								console.log(err.stack);
-								});
+								}); */
 
-			
-					
+		var scoopchannel =	message.guild.channels.get("408726317970751490").fetchMessages({limit: 10}, messages);
+					message.channel.send(Array.from(scoopchannel).length);	
 					
                 var regmatches = scoopchannel.toString().match(/#*```(.*?)```/g);
                 var getfact = "There was an uncashed Exception, sorry."; 

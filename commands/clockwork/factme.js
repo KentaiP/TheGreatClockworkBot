@@ -29,7 +29,9 @@ class FactOfTheDay extends Discord.Command
 								scoopchannel.push.apply(Array.from(messages));
 								crawlmessages(messages.last().id, messages);
 							}
-						}						
+						}).catch(err => {
+									console.log(err.stack);
+									}); 						
 				}
 				else
 				{
@@ -54,7 +56,7 @@ class FactOfTheDay extends Discord.Command
 			
 			crawlmessages("none", scoopchannel);
 			
-				/* 	
+					
                 var regmatches = scoopchannel.toString().match(/#*```(.*?)```/g);
                 var getfact = "There was an uncashed Exception, sorry."; 
                 var exceptions = ["436573366842032128", "434514788966465546"];
@@ -91,11 +93,11 @@ class FactOfTheDay extends Discord.Command
                     do 
                     {
                         var getfact = regmatches[Math.floor(Math.random() * Math.floor(regmatches.length))];
-                      
+                        /* console.log(regmatches); */
                     }while(new RegExp(exceptions.join("|")).test(getfact));
                 
                     message.channel.send("Did you know this?" + getfact);
-                }         */  
+                }          
         
     }
 }

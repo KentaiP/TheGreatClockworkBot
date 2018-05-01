@@ -20,14 +20,14 @@ class FactOfTheDay extends Discord.Command
 		
 			function crawlmessages(preid, messagecollection) 
 			{	
+			scoopchannel = scoopchannel.push(messagecollection);
 				if (preid == "none")
 				{
 				message.guild.channels.get("408726317970751490").fetchMessages({limit: 10}).then(messages => 
 						{						
 							if(Array.from(messages).length == 10)
 							{
-								scoopchannel.push.apply(Array.from(messages));
-								crawlmessages(messages.last().id, messages);
+								crawlmessages(messages.last().id, Array.from(messages));
 							}
 						}).catch(err => {
 									console.log(err.stack);
@@ -40,8 +40,7 @@ class FactOfTheDay extends Discord.Command
 						
 							if(Array.from(messages).length == 10)
 							{						
-								scoopchannel.push.apply(Array.from(messages));
-								crawlmessages(messages.last().id, scoopchannel)
+								crawlmessages(messages.last().id, Array.from(messages))
 							}
 							else
 							{

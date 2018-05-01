@@ -15,16 +15,22 @@ class FactOfTheDay extends Discord.Command
     async run(message, args) 
     {
 
-		message.guild.channels.get("408726317970751490").fetchMessages({limit: 10}).then(messages => 
-		
-		var fetchlength = Array.from(messages).length; 
-		message.channel.send(Array.from(messages)[0]);	
-		
-		);
-		
-
+		var scoopchannel = [];
+	
+			do{
+				message.guild.channels.get("408726317970751490").fetchMessages({limit: 10}).then(messages => 
+					{
+					scoopchannel.push.apply(Array.from(messages));	
+					var fetchlength = Array.from(messages).length; 
 					
-                var regmatches = Array.from(messages).toString().match(/#*```(.*?)```/g);
+					}).catch(err => {
+								console.log(err.stack);
+								});
+			}while(fetchlength == 10);
+			
+					message.channel.send(fetchlength);	
+					
+                var regmatches = scoopchannel.toString().match(/#*```(.*?)```/g);
                 var getfact = "There was an uncashed Exception, sorry."; 
                 var exceptions = ["436573366842032128", "434514788966465546"];
                 var cashsearchnone = 0;

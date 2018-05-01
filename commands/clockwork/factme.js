@@ -17,7 +17,7 @@ class FactOfTheDay extends Discord.Command
 
 		var scoopchannel = [];
 	
-			do{
+		
 				message.guild.channels.get("408726317970751490").fetchMessages({limit: 10}).then(messages => 
 					{
 					scoopchannel.push.apply(Array.from(messages));	
@@ -26,7 +26,7 @@ class FactOfTheDay extends Discord.Command
 					}).catch(err => {
 								console.log(err.stack);
 								});
-			}while(fetchlength == 10);
+
 			
 					message.channel.send(fetchlength);	
 					

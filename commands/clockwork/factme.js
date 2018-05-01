@@ -20,11 +20,9 @@ class FactOfTheDay extends Discord.Command
 		
 			function crawlmessages(preid, messagecollection) 
 			{	
-			messagecollection.forEach(function(item, index, arr) 
-                    {
-					scoopchannel.push(item);	
-					}
-			
+					scoopchannel.push(messagecollection);	
+					message.channel.send(scoopchannel.length);
+					
 				if (preid == "none")
 				{
 				message.guild.channels.get("408726317970751490").fetchMessages({limit: 10}).then(messages => 

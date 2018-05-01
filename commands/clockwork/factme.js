@@ -22,11 +22,11 @@ class FactOfTheDay extends Discord.Command
 			{
 			scoopchannel.push.apply(messages);	
 			var fetchlength = messages.length; 
-			}	
+			}).catch(err => {
+               			console.log(err.stack);
+            			});	
 		}
-		while (fetchlength == 10).catch(err => {
-               console.log(err.stack);
-            }); 
+		while (fetchlength == 10); 
 	
                 var regmatches = Array.from(scoopchannel).toString().match(/#*```(.*?)```/g);
                 var getfact = "There was an uncashed Exception, sorry."; 

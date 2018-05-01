@@ -15,13 +15,12 @@ class FactOfTheDay extends Discord.Command
     async run(message, args) 
     {
 
-	var scoopchannel = [];
+	var scoopchannel = "";
 	
 		
 			function crawlmessages(preid, messagecollection) 
 			{	
-					scoopchannel.push(messagecollection);	
-					message.channel.send(scoopchannel.length);
+					scoopchannel = scoopchannel + messagecollection.toString();	
 					
 				if (preid == "none")
 				{
@@ -46,7 +45,8 @@ class FactOfTheDay extends Discord.Command
 							}
 							else
 							{
-								message.channel.send(scoopchannel.length);
+								var regmatches = scoopchannel.toString().match(/#*```(.*?)```/g);
+								message.channel.send(regmatches.length);
 							}
 						
 						}).catch(err => {

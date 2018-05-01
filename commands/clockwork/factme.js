@@ -27,8 +27,8 @@ class FactOfTheDay extends Discord.Command
 								console.log(err.stack);
 								}); */
 
-		var scoopchannel =	message.guild.channels.get("408726317970751490").fetchMessages({limit: 10}, messages);
-					message.channel.send(Array.from(scoopchannel).length);	
+		var scoopchannel =	message.guild.channels.get("408726317970751490").fetchMessages({limit: 10}, message.channel.send(Array.from(messages).length));
+			
 					
                 var regmatches = scoopchannel.toString().match(/#*```(.*?)```/g);
                 var getfact = "There was an uncashed Exception, sorry."; 

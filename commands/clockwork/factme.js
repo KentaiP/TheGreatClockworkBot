@@ -15,7 +15,7 @@ class FactOfTheDay extends Discord.Command
     async run(message, args) 
     {
 
-        message.guild.channels.get('408726317970751490').fetchMessages()
+        message.guild.channels.get('408726317970751490').fetchMessages({limit: 100})
             .then(messages => {
 				
                 var regmatches = Array.from(messages).toString().match(/#*```(.*?)```/g);

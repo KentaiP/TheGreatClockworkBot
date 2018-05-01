@@ -15,7 +15,7 @@ class FactOfTheDay extends Discord.Command
     async run(message, args) 
     {
 
-/* 		var scoopchannel = [];
+	var scoopchannel = [];
 	
 		
 				message.guild.channels.get("408726317970751490").fetchMessages({limit: 10}).then(messages => 
@@ -23,11 +23,11 @@ class FactOfTheDay extends Discord.Command
 					scoopchannel.push.apply(Array.from(messages));	
 					var fetchlength = Array.from(messages).length; 
 					message.channel.send(fetchlength);	
+					message.channel.send(messages.last().id);
 					}).catch(err => {
 								console.log(err.stack);
-								}); */
+								}); 
 
-		var scoopchannel =	message.guild.channels.get("408726317970751490").fetchMessages({limit: 10}, message.channel.send(Array.from(messages).length));
 			
 					
                 var regmatches = scoopchannel.toString().match(/#*```(.*?)```/g);

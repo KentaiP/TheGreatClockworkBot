@@ -34,7 +34,7 @@ class FactOfTheDay extends Discord.Command
 							{
 								var regmatches = messages.toString().match(/#*```(.*?)```/g);
 								var getfact = "There was an uncashed Exception, sorry."; 
-								var exceptions = ["436573366842032128", "434514788966465546"];
+								var exceptions = ["436573366842032128", "434514788966465546", "439612340745404446"];
 								var cashsearchnone = 0;
 								
 								if (args.length > 2)
